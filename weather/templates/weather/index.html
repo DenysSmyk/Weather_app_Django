@@ -20,14 +20,18 @@
         <div class="row">
             <div class="col-5 offset-1">
                 <h1>Погода у вашому місті</h1>
-                <form action="">
+                <form action="" method="post">
+                    {% csrf_token %}
                     <label for="city">Місто</label>
-                    <input type="text" id="city" class="form-control" name="city" placeholder="Введіть місто">
+                    {{ form.name }}
                     <input type="submit" name="send" value="Взнати" class="mt-2 btn btn-danger">
                 </form>
             </div>
             <div class="col-4 offset-2">
                 <h1>Інформація</h1>
+
+
+                {% for info in all_info %}
                 <div class="alert alert-info">
                     <div class="row">
                         <div class="col-8">
@@ -39,6 +43,7 @@
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
